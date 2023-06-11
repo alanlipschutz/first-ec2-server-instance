@@ -1,12 +1,14 @@
-from flask import Flask
+import uvicorn
+from fastapi import FastAPI
 
-app = Flask(__name__)
+app = FastAPI()
 
 
-@app.route('/')
+@app.get('/')
 def hello():
-    return 'Hello, this is my first server running in a ec2 instance!'
+    return 'Hello, this is my first server running in an EC2 instance using FastAPI!'
 
 
 if __name__ == '__main__':
-    app.run()
+    uvicorn.run(app, host='', port=8000)
+
